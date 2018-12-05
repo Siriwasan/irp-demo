@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "748809737188",
+    "firebase_url": "https://irp-demo.firebaseio.com",
+    "project_id": "irp-demo",
+    "storage_bucket": "irp-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748809737188:android:1b9a5bd326c82476",
+        "android_client_info": {
+          "package_name": "com.fn.irp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "748809737188-h1j9g72otr28jd75g8fqqjnmhk1heds7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fn.irp",
+            "certificate_hash": "d0e24b559816e543f64e8e91141cc05d93d6514c"
+          }
+        },
+        {
+          "client_id": "748809737188-i80uilvrpigv8jb7rgq7paibou1lf09j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8fEKiqnoJJgM3pgdUowO114W9B2wOwqI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "748809737188-i80uilvrpigv8jb7rgq7paibou1lf09j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

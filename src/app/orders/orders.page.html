@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>orders</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>คำสั่งซื้อ #{{ id }}</ion-card-title>
+      <ion-card-subtitle
+        >สั่งซื้อวันที่ {{ order?.CheckOutedDateTime }}
+      </ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <ion-item> <ion-label>รายการสินค้า</ion-label> </ion-item>
+    <ion-card-content style="padding: 0px">
+      <ion-item *ngFor="let product of order?.ProductItems">
+        <ion-grid>
+          <ion-row justify-content-center>
+            <ion-col size="3" align-self-center>
+              <ion-img [src]="product.Product.Logo"></ion-img>
+            </ion-col>
+            <ion-col align-self-center>
+              <p style="margin-bottom: 0px;">{{ product.Name }}</p>
+              <ion-row>
+                <ion-col> ฿{{ product.Price }} </ion-col>
+                <ion-col> Qty: {{ product.Quantity }} </ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col size="3" align-self-center text-center>
+              <ion-badge color="success" (click)="shippingStatus()"
+                >รอจัดส่ง</ion-badge
+              >
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-item> <ion-label>สรุปยอดรวมทั้งสิ้น</ion-label> </ion-item>
+    <!-- <ion-item> -->
+    <ion-card-content style="padding: 8px">
+      <ion-grid>
+        <ion-row>
+          <ion-col> ยอดสินค้า </ion-col>
+          <ion-col text-end> ฿{{ order?.GrandTotal }} </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>ค่าจัดส่ง</ion-col>
+          <ion-col text-end>
+            ฿{{ order?.ShippingMethod.ShippingFees }}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+    <!-- </ion-item> -->
+    <!-- <ion-item> <ion-label>สรุปยอดรวมทั้งสิ้น</ion-label> </ion-item> -->
+  </ion-card>
+
+  <ion-card>
+    <ion-item> <ion-label>ที่อยู่ในการจัดส่ง</ion-label> </ion-item>
+    <ion-card-content>
+      <p>
+        {{ order?.ShippingAddress.ReceiverName }}<br />
+        {{ order?.ShippingAddress.Line1 }}<br />
+        {{ order?.ShippingAddress.Line2 }}<br />
+        {{ order?.ShippingAddress.Province }}<br />
+        {{ order?.ShippingAddress.ZipCode }}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-item> <ion-label>ที่อยู่ในการออกใบกำกับภาษี</ion-label> </ion-item>
+    <ion-card-content>
+      <p>
+        {{ order?.BillingAddress.ReceiverName }}<br />
+        {{ order?.BillingAddress.Line1 }}<br />
+        {{ order?.BillingAddress.Line2 }}<br />
+        {{ order?.BillingAddress.Province }}<br />
+        {{ order?.BillingAddress.ZipCode }}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

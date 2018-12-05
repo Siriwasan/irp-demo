@@ -1,0 +1,149 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>{{ product.name }}</h1>
+  <!--
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col>
+          <ion-img class="product-image" [src]="product.imageURL"></ion-img>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item no-lines> <ion-label>Detail</ion-label> </ion-item>
+          <ion-item>
+            <p class="product-style" [innerHTML]="product.detail"></p>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>S/N</ion-label>
+            <ion-item class="product-style">{{ product.serialNumber }}</ion-item>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <form method="POST" action="#">
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label>Color</ion-label>
+              <ion-select
+                name="colorSelect"
+                class="product-style"
+                value="brown"
+                ok-text="Okay"
+                cancel-text="Dismiss"
+              >
+                <ion-select-option value="brown">Brown</ion-select-option>
+                <ion-select-option value="blonde">Blonde</ion-select-option>
+                <ion-select-option value="black">Black</ion-select-option>
+                <ion-select-option value="red">Red</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label>Size</ion-label>
+              <ion-select
+                name="sizeSelect"
+                class="product-style"
+                value="12"
+                ok-text="Okay"
+                cancel-text="Dismiss"
+              >
+                <ion-select-option value="10">10</ion-select-option>
+                <ion-select-option value="12">12</ion-select-option>
+                <ion-select-option value="14">14</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </form>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>Price per unit</ion-label>
+            <ion-item class="product-style">{{ product.price }}</ion-item>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  -->
+
+  <ion-list>
+    <ion-item lines="none">
+      <ion-slides
+        style="height: 250px"
+        pager="true"
+        [options]="{ effect: 'flip' }"
+      >
+        <ion-slide *ngFor="let imageUrl of product.imageUrls">
+          <img [src]="imageUrl" />
+        </ion-slide>
+      </ion-slides>
+    </ion-item>
+
+    <ion-item lines="none"> <ion-label>Detail</ion-label> </ion-item>
+    <ion-item>
+      <p class="product-style product-detail" [innerHTML]="product.detail"></p>
+    </ion-item>
+    <ion-item>
+      <ion-label>S/N</ion-label>
+      <ion-label text-right class="product-style">{{
+        product.serialNumber
+      }}</ion-label>
+    </ion-item>
+    <form method="POST" action="#">
+      <ion-item>
+        <ion-label>Color</ion-label>
+        <ion-select
+          name="colorSelect"
+          class="product-style"
+          value="brown"
+          ok-text="Okay"
+          cancel-text="Dismiss"
+        >
+          <ion-select-option
+            *ngFor="let color of product.colors"
+            [value]="color"
+            >{{ color }}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Size</ion-label>
+        <ion-select
+          name="sizeSelect"
+          class="product-style"
+          value="12"
+          ok-text="Okay"
+          cancel-text="Dismiss"
+        >
+          <ion-select-option
+            *ngFor="let size of product.sizes"
+            [value]="size"
+            >{{ size }}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+    </form>
+    <ion-item>
+      <ion-label>Price per unit</ion-label>
+      <ion-label text-right class="product-style">{{
+        product.price
+      }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

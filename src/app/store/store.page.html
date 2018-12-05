@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar> <ion-title>Store</ion-title> </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let product of products">
+    <ion-item [href]="'/products/' + product.id">
+      <ion-img
+        slot="start"
+        [src]="product.imageUrls[0]"
+        style="width: 100px"
+      ></ion-img>
+      <ion-label text-wrap>{{ product.name }}</ion-label>
+    </ion-item>
+
+    <ion-card-content>
+      <p
+        class="product-style product-detail"
+        [innerHTML]="product.detail.substring(0, 200) + '<i>...อ่านต่อ...</i>'"
+      ></p>
+    </ion-card-content>
+  </ion-card>
+
+  <!--
+    <ion-row>
+      <ion-col>
+        <ion-button
+          expand="block"
+          color="danger"
+          href="/trackings/7d38a180-6b6d-4b5a-a48a-7671fbc05d97"
+        >
+          Tracking A
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <br />
+    <ion-row>
+      <ion-col>
+        <ion-button
+          expand="block"
+          color="secondary"
+          href="/review-results/thesmana99%40gmail.com/p0001"
+        >
+          Review result A
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  -->
+</ion-content>

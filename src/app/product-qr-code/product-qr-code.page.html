@@ -1,0 +1,19 @@
+<ion-header hidden>
+  <ion-toolbar> <ion-title>product-qr-code</ion-title> </ion-toolbar>
+</ion-header>
+
+<ion-content padding text-center>
+  <img id="qrimg" [src]="qrData?.qrImageUrl" width="360px" high="360px" />
+  <p>
+    คุณสามารถนำ QR code ที่ได้ไปใส่ในวีดีโอหรือรูปเพื่อใช้รีวิวสินค้าชิ้นนี้
+    โดยต้องสแกนด้วยโปรแกรม mana เท่านั้นจึงจะสามารถใช้งานได้สมบูรณ์
+    หากยังไม่มีโปรแกรมจะดูรายละเอียดสินค้าได้เท่านั้นไม่สามารถซื้อได้
+    ต้องโหลดโปรแกรม mana ให้เรียบร้อย
+  </p>
+  <p><ion-button shape="round" (click)="saveQR()">Save QR code</ion-button></p>
+  <p>
+    <ion-button shape="round" color="danger" (click)="close()"
+      >Close</ion-button
+    >
+  </p>
+</ion-content>

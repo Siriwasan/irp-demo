@@ -1,10 +1,38 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon
+          style="color: rgb(179, 179, 179)"
+          slot="icon-only"
+          name="funnel"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+<ion-content>
+  <ion-card *ngFor="let order of orders">
+    <ion-item-divider color="primary" style="font-style: italic">
+      {{ ago(order.CheckOutedDateTime) }} ago
+
+      <ion-badge
+        *ngIf="order.RecordStatus === 'Unread'"
+        slot="end"
+        color="danger"
+        >New</ion-badge
+      >
+    </ion-item-divider>
+
+    <ion-item href="orders/{{ order.Id }}">
+      <ion-card-content style="padding: 10px 5px;">
+        <p>Order ID: {{ order.Id.split('-', 1) }}</p>
+        <p>Order date: {{ convertDate(order.CheckOutedDateTime) }}</p>
+        <p>TotalPrice: {{ order.TotalPrice }}</p>
+        <p style="font-style: italic">Customer: {{ order.UserId }}</p>
+      </ion-card-content>
+    </ion-item>
+  </ion-card>
 </ion-content>

@@ -1,0 +1,14 @@
+<!--
+  <ion-header>
+    <ion-toolbar> <ion-title>review-results</ion-title> </ion-toolbar>
+  </ion-header>
+-->
+
+<ion-content padding>
+  <h1>{{ reviewResult?.product.name }}</h1>
+  <img [src]="reviewResult?.product.logo" width="360px" high="360px" />
+
+  <h2>Review results</h2>
+  <h3>Review: {{ reviewResult?.viewCount }}</h3>
+  <h3>Buy: {{ reviewResult?.buyCount }}</h3>
+</ion-content>

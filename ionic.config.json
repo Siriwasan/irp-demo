@@ -1,5 +1,7 @@
 {
   "name": "irp-demo",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
